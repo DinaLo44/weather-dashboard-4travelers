@@ -1,3 +1,11 @@
 .jumbotron {
     font-family: 'Permanent Marker', cursive;;
 }
+
+.container2 h1 {
+    margin-left: 20px;
+}
+
+.weather-condition {
+    text-transform: capitalize;
+}

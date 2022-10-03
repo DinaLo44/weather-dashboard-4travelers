@@ -9,3 +9,22 @@
 .weather-condition {
     text-transform: capitalize;
 }
+
+#cityname-btn {
+    list-style-type: none;
+    
+}
+
+.styled-cards-forecast {
+    margin: 3px;
+    background-color:blue;
+    color: white;
+
+}
+
+/* .custom-btn {
+    position:;
+    display:flex;
+    flex-wrap: wrap;
+    justify-items: center;
+} */

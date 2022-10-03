@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style.css">
-    
+
 </head>
 
 <body>
@@ -23,31 +23,42 @@
             <h1 class="display-4">Weather Dashboard 4 Travelers</h1>
         </div>
     </div>
-    <div class="container2 text-dark">
-        <h1>Enter your City</h1>
-        <form class="col-6">
-            <div class="form-group">
-                <input type="city" class="form-control" id="city-input" >
+    <div class="row mainContainer">
+        <div class="container2 text-dark col-4">
+            <h1>Enter your City:</h1>
+            <form class="col-12">
+                <div class="form-group">
+                    <input type="city" class="form-control" id="city-input">
+                </div>
+
+                <button class="btn btn-primary" id="search-button">Submit</button>
+                <!--the id "search-button" used to be a class previously-->
+            </form>
+            <div class="card m-3">
+                <h2>Searched Cities:</h2>
+                <p><span id="searched-city"></span></p>
+                <ul id="list-of-cities"></ul>
             </div>
-            
-            <button class="btn btn-primary search-button">Submit</button>
-        </form>
-    </div><br><br>
-    <ul></ul><br>
-    <div class="card container my-3 mx-3 p-4 text-white bg-primary mb-3" style="max-width: 20rem">
-        <div class="weather-info ">
-            <h2 class="city-weather text-center">Weather in Salt Lake City</h2>
-            <h3 class="date text-center">Date</h3>
-            <img src="" alt="" class="icon" />
-            <h3 class="weather-condition">Sunny</h2>
-            <h3 class="temperature">84°F </h3>
-            <h3 class="humidity">Humidity: 34%</h3>
-            <h3 class="wind-speed">Wind speed: 14mph</h3>
-            <h3 class="uvi-index">UV index: Moderate</h3>
         </div>
+        <section class="col-8">
+            <div class="card container border mb-3 " style="max-width: 55rem">
+                <div id="todays-weather">
+                    <!--this id used to be a class called "weather-info"-->
+                    <h2 class="city-name text-center"></h2>
+                    <h3 class="date text-center"></h3>
+                    <img src="" alt="" class="icon" />
+                    <h3 class="weather-condition">
+                        </h2>
+                        <h3 class="temperature"></h3>
+                        <h3 class="humidity"></h3>
+                        <h3 class="wind-speed"></h3>
+                        <h3 class="uvi-index"></h3>
+                </div>
+            </div>
+            <div class="row justify-content-center" id="fiveday-forecast"></div>
+            <!--this id used to be a class with the same name-->
+        </section>
     </div>
-
-
 
 
 
@@ -57,11 +68,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-        <script
-        type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
-      ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"

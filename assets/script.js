@@ -1,4 +1,4 @@
-var apiKey = 'bdabe8e8600787cd3137c1b4f23667f4';
+var apiKey = 'd98ac0021a635fc3e2c3875ea3adefcb';
 var listOfCities = document.getElementById('list-of-cities');
 var inputEl = document.getElementById('city-input');
 var searchButtonEl = document.querySelector('#search-button');
@@ -21,9 +21,10 @@ function fetchWeather(city) {
     /*API call taken from https://openweathermap.org/api/geocoding-api
     EG: https://api.openweathermap.org/geo/1.0/direct?q=Denver&limit=1&appid=bdabe8e8600787cd3137c1b4f23667f4 */
 
-    var directGeocodingUrl = ` https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
-
+    var directGeocodingUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
+console.log(city)
     fetch(directGeocodingUrl)
+
         .then(function (response) {
             console.log(response)
             return response.json()
@@ -124,6 +125,7 @@ searchButtonEl.addEventListener("click", function (event) {
 
     var inputElValue = inputEl.value;
     if (inputElValue === null) {
+
         alert("Please enter a city name")
     } else {
 

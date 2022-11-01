@@ -17,4 +17,4 @@ I used an API key from the openweathermap.org website. I used local storage to d
 
 # GitHub repository link
 
-https://github.com/DinaLo44/NoSQL-social-network-api
+https://github.com/DinaLo44/weather-dashboard-4travelers

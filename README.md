@@ -12,7 +12,8 @@ I used an API key from the openweathermap.org website. I used local storage to d
 
 #Application's appearance
 
-![name of the screenshot file](URL GitHub created)
+![screenshot1.png](https://github.com/DinaLo44/weather-dashboard-4travelers/blob/main/assets/images/screenshot1.png)
+![screenshot2.png]()
 
 # GitHub repository link
 

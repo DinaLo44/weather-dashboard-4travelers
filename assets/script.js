@@ -1,3 +1,4 @@
+//Global variables
 var apiKey = 'd98ac0021a635fc3e2c3875ea3adefcb';
 var listOfCities = document.getElementById('list-of-cities');
 var inputEl = document.getElementById('city-input');
@@ -22,7 +23,7 @@ function fetchWeather(city) {
     EG: https://api.openweathermap.org/geo/1.0/direct?q=Denver&limit=1&appid=bdabe8e8600787cd3137c1b4f23667f4 */
 
     var directGeocodingUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
-console.log(city)
+    console.log(city)
     fetch(directGeocodingUrl)
 
         .then(function (response) {
@@ -45,27 +46,13 @@ console.log(city)
                 .then(function (response) {
                     return response.json();
                 }).then(function (data) {
-                    // var cityTakenFromData = data.name;
                     cityNameEl.textContent = "Weather in " + city;
-
                     dateEl.textContent = moment.unix(data.current.dt).format('MMMM Do, YYYY');
-
-                    // var icon = data.weather[0].icon;
                     iconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png";
-
-                    // var weatherCondition = data.weather[0].description;
                     weatherConditionEl.textContent = data.current.weather[0].description;
-
-                    // var temperature = data.current.temp;
                     temperatureEl.textContent = "Temperature: " + data.current.temp + "°F";
-
-                    // var humidity = data.current.humidity;
                     humidityEl.textContent = "Humidity: " + data.current.humidity + "%";
-
-                    // var windSpeed = data.current.wind_speed;
                     windSpeedEl.textContent = "Wind speed: " + data.current.wind_speed + " miles/hour";
-
-                    // var uviIndex = data.current.uvi;
                     uviIndexEl.textContent = "UVI: " + data.current.uvi;
 
                     for (var i = 0; i <= 4; i++) {
@@ -110,13 +97,12 @@ console.log(city)
                         var uviFromForecastData = data.daily[i].uvi;
                         uviForEachCard.textContent = "UVI: " + uviFromForecastData;
                         cardsForEachDay.append(uviForEachCard);
+                    };
+                });
+        });
+};
 
-                    }
-                })
-        })
-}
-
-// function searchInfo () {
+// Button for the cities that will be searched for the first time
 searchButtonEl.addEventListener("click", function (event) {
     console.log(inputEl.value)
     console.log('this works')
@@ -138,7 +124,7 @@ searchButtonEl.addEventListener("click", function (event) {
 
 
 creatingSearchedCitiesButton();
-//This function saves the searched cities
+//This function renders the searched cities
 function renderSearchedCities(city) {
     var cities = [];
 
@@ -149,19 +135,13 @@ function renderSearchedCities(city) {
     } else {
         cities = lastSearchedCity
     }
-
-
-    // lastSearchedCity.push(inputElValue.value)
-
-    // cities = JSON.parse(localStorage.getItem(lastSearchedCity));
     cities.push(city)
-    // cities.push(lastSearchedCity);
-
     localStorage.setItem("lastSearchedCity", JSON.stringify(cities));
-
 }
 
 var searchingBtn;
+//This function is for the button of the previously searched city to be displayed when refreshing the page after the first search
+//The page needs to be refreshed after the first search in order for the local storage to save the information and then the buttons will be displaying
 function creatingSearchedCitiesButton() {
     if (localStorage.getItem('lastSearchedCity') !== null) {
         cities = JSON.parse(localStorage.getItem('lastSearchedCity'));
@@ -183,7 +163,7 @@ function creatingSearchedCitiesButton() {
     }
 }
 
-
+//This function displays the 5-day forecast. Event listener for the searchingBtn 
 function displayingForecastWeather() {
     searchingBtn.addEventListener("click", function (event) {
         event.preventDefault();
@@ -192,10 +172,10 @@ function displayingForecastWeather() {
             fiveDayForecastContainer.textContent = "";
             fetchWeather(event.target.textContent);
         }
-
     })
 };
 
+//Allows to keep the button of previous searches after refreshing the page
 function buttonsStay() {
     if (localStorage === null) {
 
